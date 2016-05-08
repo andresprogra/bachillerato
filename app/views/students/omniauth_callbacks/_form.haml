@@ -1,0 +1,27 @@
+=form_tag "/custom_sign_up", method: :post do
+	%ul.color-red.small-padding
+		-@student.errors.full_messages.each do |error|
+			%li= error
+	.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+
+		%label{for:"student_name", class:"mdl-textfield__label"} Nombre
+		=text_field_tag "student[name]", @student.name,class:"mdl-textfield__input"
+	
+	.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+		%label{for:"student_apellido_pat", class:"mdl-textfield__label"} Apellido paterno
+		=text_field_tag "student[apellido_pat]", @student.apellido_pat,class:"mdl-textfield__input"
+	.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+		%label{for:"student_apellido_mat", class:"mdl-textfield__label"} Apellido materno
+		=text_field_tag "student[apellido_mat]", @student.apellido_mat,class:"mdl-textfield__input"
+	.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+		%label{for:"student_curp", class:"mdl-textfield__label"} Curp
+		=text_field_tag "student[curp]", @student.curp,class:"mdl-textfield__input"
+	.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+		%label{for:"student_no_control", class:"mdl-textfield__label"} N° control
+		=text_field_tag "student[no_control]", @student.no_control,class:"mdl-textfield__input"
+	.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+		%label{for:"student_email", class:"mdl-textfield__label"} Correo electrónico
+		=email_field_tag "student[email]", @student.email, required: true,class:"mdl-textfield__input"
+	%div
+		=submit_tag "Completar registro", class:"mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+
